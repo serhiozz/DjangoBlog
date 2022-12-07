@@ -1,0 +1,8 @@
+<div class="{{ menu_class }}">
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        {% for item in categories %}
+            <li><a href="{{ item.get_absolut_url }}">{{ item.title }}</a></li> <!-- get_absolut_url() см. модель -->
+        {% endfor %}
+    </ul>
+</div>

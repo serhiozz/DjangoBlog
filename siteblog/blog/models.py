@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 """
 Category
@@ -21,6 +22,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolut_url(self):
+        return reverse('category', kwargs={'slug': self.slug})  # Для формирования ссылок см. urls.py
 
     class Meta:
         ordering = ['title']  # сортировка
