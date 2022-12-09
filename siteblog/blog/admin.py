@@ -32,6 +32,7 @@ class PostAdminForm(forms.ModelForm):
 
 class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
+
     prepopulated_fields = {'slug': ('title',)}  # Создает слаг из заголовка
 
     save_as = True  # Добавляет кнопку для быстрого заполения новой новости на основе предыдущей
@@ -40,10 +41,11 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'slug', 'category', 'created_at', 'get_photo', 'views')  # Отображаемые поля в списке
     list_display_links = ('id', 'title')  # id и заголовок в виде ссылке в админке в списке
     list_filter = ('category',)  # Добавляет возможность фильтрации статей по категории
-    search_fields = ('title',)  # Возможность поиска по названию статьи
 
+    fields = ('title', 'slug', 'category', 'tags', 'content', 'photo', 'get_photo', 'views',
+              'created_at')  # Отображаемые поля в статье
     readonly_fields = ('views', 'created_at', 'get_photo')  # Поля "только для просмотра"
-    fields = ('title', 'slug', 'category', 'tags', 'content', 'photo', 'get_photo', 'views', 'created_at')  # Отображаемые поля в статье
+    search_fields = ('title',)  # Возможность поиска по названию статьи
 
     def get_photo(self, obj):
         if obj.photo:
