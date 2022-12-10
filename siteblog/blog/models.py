@@ -59,6 +59,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolut_url(self):
+        return reverse('post', kwargs={'slug': self.slug})  # Для формирования ссылок см. urls.py
+
     class Meta:
         ordering = ['-created_at']   # сортировка в обратном порядке (самые свежие выше)
         verbose_name = "Новость"
