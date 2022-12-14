@@ -40,9 +40,9 @@ class PostAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'title', 'slug', 'category', 'created_at', 'get_photo', 'views')  # Отображаемые поля в списке
     list_display_links = ('id', 'title')  # id и заголовок в виде ссылке в админке в списке
-    list_filter = ('category',)  # Добавляет возможность фильтрации статей по категории
+    list_filter = ('category', 'tags',)  # Добавляет возможность фильтрации статей по категории
 
-    fields = ('title', 'slug', 'category', 'tags', 'content', 'photo', 'get_photo', 'views',
+    fields = ('title', 'slug', 'category', 'tags', 'content', 'photo', 'get_photo', 'author', 'views',
               'created_at')  # Отображаемые поля в статье
     readonly_fields = ('views', 'created_at', 'get_photo')  # Поля "только для просмотра"
     search_fields = ('title',)  # Возможность поиска по названию статьи
