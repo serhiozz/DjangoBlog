@@ -23,7 +23,7 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolut_url(self):
+    def get_absolute_url(self):
         return reverse('category', kwargs={'slug': self.slug})  # Для формирования ссылок см. urls.py
 
     class Meta:
@@ -39,7 +39,7 @@ class Tag(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolut_url(self):
+    def get_absolute_url(self):
         return reverse('tag', kwargs={'slug': self.slug})  # Для формирования ссылок см. urls.py
 
     class Meta:
@@ -62,7 +62,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolut_url(self):
+    def get_absolute_url(self):
         return reverse('post', kwargs={'slug': self.slug})  # Для формирования ссылок см. urls.py
 
     class Meta:

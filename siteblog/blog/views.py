@@ -61,7 +61,6 @@ class PostsByTag(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Posts by tag: '+ str(Tag.objects.get(slug=self.kwargs['slug']))
-        # context['title'] = self.kwargs['slug'].capitalize() # Тоже что и выше но без запроса к БД (правильно ли это?)
         return context
 
 # def index(request):

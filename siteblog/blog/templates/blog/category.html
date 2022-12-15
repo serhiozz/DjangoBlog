@@ -53,7 +53,7 @@
                                     {% else%}
                                         <img src="https://msanteh.ru/wa-data/public/shop/products/78/03/20378/images/64582/64582.580.jpg" height="200" alt="{{ post.title }}">
                                     {% endif %}
-                                    <h3><a href="{{ post.get_absolut_url }}">{{ post.title }}</a></h3>
+                                    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                                     <h4><span>Posted By: <span class="author-name">{{ post.author }}</span></span></h4>
 
                                     {{ post.content | safe | truncatewords_html:25}}
