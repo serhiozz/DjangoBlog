@@ -28,9 +28,9 @@
                                     <div>
                                         {% if post.tags.exists %}
                                         <span>Tags:</span>
-                                            {% for tag in post.tags.all %}
-                                                <span><a class="badge badge-primary" href="{{ tag.get_absolute_url }}">{{ tag.title }}</a> </span>
-                                            {% endfor %}
+                                        {% for tag in post.tags.all %}
+                                        <span><a class="badge badge-primary" href="{{ tag.get_absolute_url }}">{{ tag.title }}</a> </span>
+                                        {% endfor %}
                                         {% endif %}
                                     </div>
                                 </div>
@@ -138,18 +138,19 @@
                     </div>
                     <div class="col-md-4">
 
-                        {% get_popular 5 %}
-
-                        <div class="tags">
-                            {% get_tags %}
-                        </div>
                         <div class="newsletter">
-                            <h2 class="sidebar-title">Subscribe To oUR nEWSLETTER</h2>
-                            <form action="#" method="post">
-                                <input type="email" name="" id="" placeholder="Email">
-                                <input type="submit" value="Subscribe">
+                            <h2 class="sidebar-title">Search</h2>
+                            <form action="{% url 'search' %}" method="get">
+                                <input type="text" name="s" placeholder="Search...">
+                                <input type="submit" value="Search">
                             </form>
                         </div>
+
+                        {% get_popular 5 %} <!-- Популярные посты -->
+
+                        {% get_tags %} <!-- Облако тегов -->
+
+
                     </div>
                 </div>
             </div>
